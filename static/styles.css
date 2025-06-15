@@ -187,10 +187,18 @@ section[id] {
     color: #aaa;
 }
 
-/* Services Section */
+/* Updated Services Section CSS */
 .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -198,9 +206,10 @@ section[id] {
     background: var(--card);
     border-radius: 8px;
     padding: 30px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
     border: 1px solid #333;
     text-align: center;
+    cursor: pointer;
 }
 
 .service-card:hover {
@@ -209,16 +218,19 @@ section[id] {
     border-color: var(--primary);
 }
 
+/* Icon Styling */
 .service-card i {
     font-size: 3rem;
     color: var(--primary);
     margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+.service-card:hover i {
+    color: var(--primary-dark);
+    transform: scale(1.1);
 }
+
 
 /* About Section */
 .about-content {
@@ -507,6 +519,23 @@ footer {
 
     .about-stats {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .service-card-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card i {
+        font-size: 2.5rem;
     }
 }
 
